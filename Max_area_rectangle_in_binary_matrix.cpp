@@ -81,7 +81,7 @@ int main(int argc, char const *argv[])
     vector<int>v;
      for(int j=0;j<m;j++)
      v.push_back(a[0][j]);
-     int mx=MAH(v,n);
+     int mx=MAH(v,m);
      for(int i=1;i<n;i++){
           for(int j=0;j<m;j++){
                if(a[i][j]==0)
@@ -89,8 +89,29 @@ int main(int argc, char const *argv[])
                else
                v[j]=v[j]+a[i][j];
           }
-          mx=max(mx,MAH(v,n));
+          mx=max(mx,MAH(v,m));
      }
      cout<<mx<<endl;
     return 0;
 }
+/*
+Ex.
+0 1 1 0
+1 1 1 1
+1 1 1 1
+1 1 0 0
+Output :
+8;
+Input :
+0 1 1 0
+1 1 1 1
+1 1 1 1
+1 1 0 0
+Step 1: 
+0 1 1 0  maximum area  = 2
+Step 2:
+row 1  1 2 2 1  area = 4, maximum area becomes 4
+row 2  2 3 3 2  area = 8, maximum area becomes 8
+row 3  3 4 0 0  area = 6, maximum area remains 8
+
+*/
